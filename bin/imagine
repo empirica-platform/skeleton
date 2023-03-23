@@ -1,0 +1,13 @@
+#!/usr/bin/env php
+<?php
+
+require __DIR__.'/../vendor/autoload.php';
+
+use EmpiricaPlatform\Imagine\DefaultCommand;
+use Symfony\Component\Console\Application;
+
+$application = new Application('imagine', '1.0.0');
+$command = new DefaultCommand($_SERVER['argv'][0]);
+$application->add($command);
+$application->setDefaultCommand($command->getName(), true);
+$application->run();
